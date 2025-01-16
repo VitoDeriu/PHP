@@ -1,2 +1,2 @@
-# PHP-B2
+# PHP
 Exercices de PHP 2ème année Ynov
