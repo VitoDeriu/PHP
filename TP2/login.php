@@ -1,20 +1,16 @@
 <?php
 session_start();
 
-// Si l'utilisateur est déjà connecté, on le redirige vers la page d'accueil
 if (isset($_SESSION['username'])) {
     header('Location: index.php');
     exit();
 }
 
-// Traitement du formulaire de connexion
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
-
-    // Vérifie si un nom a été saisi
     if ($username) {
-        $_SESSION['username'] = $username; // Stocke le nom dans la session
-        header('Location: index.php'); // Redirige vers la page d'accueil
+        $_SESSION['username'] = $username; 
+        header('Location: index.php'); 
         exit();
     }
 }

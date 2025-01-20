@@ -1,0 +1,11 @@
+PHP Correction tp Connexion sessions
+
+pour faire une session il est bon de verifier si une session n'est pas déjà ouverte avec un  if(session_status() !== PHP_SESSION_ACTIVE)
+
+pour eviter les injection XSS (le script js dans le html) il faut prendre la réponse du formulaire dans la fonction Htmlspecialchar() qui va convertir les caarctères spéciaux en caractere html (ex: le < en &lt) et ca va empecher d'injecter du code.
+
+Dans page2.php le code en entete verifie si la session est ective et affiche le code de la page si non ca va rediriger vers login.php 
+
+la sessions est active mais on peut quand meme retourner sur login.php dans l'url. on va aller verifier si il est connecter dans l'entete de login.php et aussi dans page2.php
+
+pour se deconnecter dans la page bye.php Faut session_unset() pour vider le tableau de session, session_destroy() pour supprimer la session coté serveur et setcookie() a une date antérieur pour supprimer le cookie de session. 
