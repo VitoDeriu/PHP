@@ -1,4 +1,4 @@
-<?php
+<?php // pour redirect si on essaye d'acceder a la page dans l'url sans etre connecté. ca renvoi a la page index.
 include("connected.php");
 if(!$connected) {
     header('location:index.php');
