@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `interests` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id_user` int NOT NULL AUTO_INCREMENT,
-  `name_user` varchar(255) NOT NULL,
+  `name_user` varchar(255) NOT NULL UNIQUE,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

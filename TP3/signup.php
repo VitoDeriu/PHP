@@ -1,9 +1,6 @@
 <?php
     include("connected.php");
 
-
-
-
 ?>
 
 <!DOCTYPE html>

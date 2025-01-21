@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Page de connexion</h1>
+     <?php echo ("<h1> Bonjour ! $username </h1>") ?>    
     <a href="login.php">Se Connecter</a>
     <a href="signup.php">S'inscrire</a>
 </body>

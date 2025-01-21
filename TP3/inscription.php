@@ -11,7 +11,7 @@ if(isset($_POST['name']) && !empty($_POST["name"])){
 }
 
 if(isset($_POST["password"]) && !empty($_POST["password"])) {
-    $password = htmlspecialchars($_POST["password"]);
+    $password = password_hash(htmlspecialchars($_POST["password"]), PASSWORD_DEFAULT);
 }
 
 $rqt = 'INSERT INTO users (name_user, password) VALUES (:nom, :mdp)';
@@ -21,8 +21,4 @@ $stmt->execute([
     ':mdp' => $password
 ]);
 
-header('location:pagetest.php');
-    
-
-//il faut aller enregistrer ca dans la bdd
-//avec hashage de mdp
+header('location:login.php');
