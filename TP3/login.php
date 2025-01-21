@@ -1,5 +1,5 @@
 <?php
-    include("connected.php");
+    include_once("connected.php");
 ?>
 
 <!DOCTYPE html>

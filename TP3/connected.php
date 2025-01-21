@@ -5,4 +5,4 @@ if(session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 $connected = isset($_SESSION["username"]) && !empty($_SESSION["username"]);
-$username = $connected ? $_SESSION["username"] : "";
+$username = $connected ? $_SESSION["username"] : "unknown user";

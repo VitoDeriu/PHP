@@ -1,8 +1,9 @@
 <?php
 
-include("connected.php");
+include_once("connected.php");
+include_once("connect_bdd.php");
 
-$cnx = new PDO("mysql:host=localhost;dbname=tp_php","VitoDeriu","askiponfaitdesbdd");
+
 
 
 if(isset($_POST['name']) && !empty($_POST["name"])) {
@@ -29,7 +30,5 @@ if(isset($_POST["password"]) && !empty($_POST["password"])) {
     //renvoyer sur login si c'est la comparaison est fausse
     //renvoyer sur pagetest si la connexion est faite
 }
-$_SESSION['username'] = $res_username;
-
 
 ?>
