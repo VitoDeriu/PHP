@@ -1,0 +1,16 @@
+{
+    "name": "vitod/tp4",
+    "description": "TP4",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "VitoDeriu",
+            "email": "vito.deriu@ynov.com"
+        }
+    ],
+    "require": {}
+}

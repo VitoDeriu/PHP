@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>PHP &colon; Programmation Orient&eacute;e Objet</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension jebbs.markdown-extended */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("data:application/x-font-woff;charset=utf-8;base64,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") format("woff");
+}
+
+.admonition {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+  position: relative;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  border-left: .4rem solid rgba(68, 138, 255, .8);
+  border-radius: .2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  overflow: auto;
+}
+
+.admonition>p {
+  margin-top: .8rem;
+}
+
+.admonition>.admonition-title {
+  margin: 0 -1.2rem;
+  padding: .8rem 1.2rem .8rem 3.6rem;
+  border-bottom: 1px solid rgba(68, 138, 255, .2);
+  background-color: rgba(68, 138, 255, .1);
+  font-weight: 700;
+}
+
+.admonition>.admonition-title:before {
+  position: absolute;
+  left: 1.2rem;
+  font-size: 1.5rem;
+  color: rgba(68, 138, 255, .8);
+  content: "\E3C9";
+}
+
+.admonition>.admonition-title:before {
+  font-family: Material Icons;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: none;
+  white-space: nowrap;
+  speak: none;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+.admonition.summary,
+.admonition.abstract,
+.admonition.tldr {
+  border-left-color: rgba(0, 176, 255, .8);
+}
+
+.admonition.summary>.admonition-title,
+.admonition.abstract>.admonition-title,
+.admonition.tldr>.admonition-title {
+  background-color: rgba(0, 176, 255, .1);
+  border-bottom-color: rgba(0, 176, 255, .2);
+}
+
+.admonition.summary>.admonition-title:before,
+.admonition.abstract>.admonition-title:before,
+.admonition.tldr>.admonition-title:before {
+  color: rgba(0, 176, 255, 1);
+  ;
+  content: "\E8D2";
+}
+
+.admonition.hint,
+.admonition.tip {
+  border-left-color: rgba(0, 191, 165, .8);
+}
+
+.admonition.hint>.admonition-title,
+.admonition.tip>.admonition-title {
+  background-color: rgba(0, 191, 165, .1);
+  border-bottom-color: rgba(0, 191, 165, .2);
+}
+
+.admonition.hint>.admonition-title:before,
+.admonition.tip>.admonition-title:before {
+  color: rgba(0, 191, 165, 1);
+  content: "\E80E";
+}
+
+.admonition.info,
+.admonition.todo {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.info>.admonition-title,
+.admonition.todo>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.info>.admonition-title:before,
+.admonition.todo>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E88E";
+}
+
+.admonition.success,
+.admonition.check,
+.admonition.done {
+  border-left-color: rgba(0, 200, 83, .8);
+}
+
+.admonition.success>.admonition-title,
+.admonition.check>.admonition-title,
+.admonition.done>.admonition-title {
+  background-color: rgba(0, 200, 83, .1);
+  border-bottom-color: rgba(0, 200, 83, .2);
+}
+
+.admonition.success>.admonition-title:before,
+.admonition.check>.admonition-title:before,
+.admonition.done>.admonition-title:before {
+  color: rgba(0, 200, 83, 1);
+  ;
+  content: "\E876";
+}
+
+.admonition.question,
+.admonition.help,
+.admonition.faq {
+  border-left-color: rgba(100, 221, 23, .8);
+}
+
+.admonition.question>.admonition-title,
+.admonition.help>.admonition-title,
+.admonition.faq>.admonition-title {
+  background-color: rgba(100, 221, 23, .1);
+  border-bottom-color: rgba(100, 221, 23, .2);
+}
+
+.admonition.question>.admonition-title:before,
+.admonition.help>.admonition-title:before,
+.admonition.faq>.admonition-title:before {
+  color: rgba(100, 221, 23, 1);
+  ;
+  content: "\E887";
+}
+
+.admonition.warning,
+.admonition.attention,
+.admonition.caution {
+  border-left-color: rgba(255, 145, 0, .8);
+}
+
+.admonition.warning>.admonition-title,
+.admonition.attention>.admonition-title,
+.admonition.caution>.admonition-title {
+  background-color: rgba(255, 145, 0, .1);
+  border-bottom-color: rgba(255, 145, 0, .2);
+}
+
+.admonition.attention>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E417";
+}
+
+.admonition.warning>.admonition-title:before,
+.admonition.caution>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E002";
+}
+
+.admonition.failure,
+.admonition.fail,
+.admonition.missing {
+  border-left-color: rgba(255, 82, 82, .8);
+}
+
+.admonition.failure>.admonition-title,
+.admonition.fail>.admonition-title,
+.admonition.missing>.admonition-title {
+  background-color: rgba(255, 82, 82, .1);
+  border-bottom-color: rgba(255, 82, 82, .2);
+}
+
+.admonition.failure>.admonition-title:before,
+.admonition.fail>.admonition-title:before,
+.admonition.missing>.admonition-title:before {
+  color: rgba(255, 82, 82, 1);
+  ;
+  content: "\E14C";
+}
+
+.admonition.danger,
+.admonition.error,
+.admonition.bug {
+  border-left-color: rgba(255, 23, 68, .8);
+}
+
+.admonition.danger>.admonition-title,
+.admonition.error>.admonition-title,
+.admonition.bug>.admonition-title {
+  background-color: rgba(255, 23, 68, .1);
+  border-bottom-color: rgba(255, 23, 68, .2);
+}
+
+.admonition.danger>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E3E7";
+}
+
+.admonition.error>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E14C";
+}
+
+.admonition.bug>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E868";
+}
+
+.admonition.example,
+.admonition.snippet {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.example>.admonition-title,
+.admonition.snippet>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.example>.admonition-title:before,
+.admonition.snippet>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E242";
+}
+
+.admonition.quote,
+.admonition.cite {
+  border-left-color: rgba(158, 158, 158, .8);
+}
+
+.admonition.quote>.admonition-title,
+.admonition.cite>.admonition-title {
+  background-color: rgba(158, 158, 158, .1);
+  border-bottom-color: rgba(158, 158, 158, .2);
+}
+
+.admonition.quote>.admonition-title:before,
+.admonition.cite>.admonition-title:before {
+  color: rgba(158, 158, 158, 1);
+  ;
+  content: "\E244";
+}
+.vscode-light kbd,
+.vscode-dark kbd,
+.vscode-high-contrast kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  vertical-align: middle;
+  border: solid 1px #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.vscode-light kbd {
+  color: #444d56;
+  background-color: #fafbfc;
+}
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="php--programmation-orientée-objet">PHP : Programmation Orientée Objet</h1>
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+<li><a href="#php--programmation-orient%C3%A9e-objet">PHP : Programmation Orientée Objet</a>
+<ul>
+<li><a href="#sommaire">Sommaire</a></li>
+<li><a href="#introduction-%C3%A0-la-poo">Introduction à la POO</a></li>
+<li><a href="#principes-fondamentaux-de-la-poo">Principes fondamentaux de la POO</a>
+<ul>
+<li><a href="#classes-et-objets">Classes et Objets</a></li>
+<li><a href="#propri%C3%A9t%C3%A9s-et-m%C3%A9thodes">Propriétés et Méthodes</a></li>
+<li><a href="#visibilit%C3%A9--public-private-protected">Visibilité : public, private, protected</a></li>
+<li><a href="#constructeurs-et-destructeurs">Constructeurs et Destructeurs</a></li>
+<li><a href="#h%C3%A9ritage">Héritage</a></li>
+<li><a href="#polymorphisme-interfaces-et-classes-abstraites">Polymorphisme, Interfaces et Classes abstraites</a></li>
+</ul>
+</li>
+<li><a href="#autoload-en-php">Autoload en PHP</a>
+<ul>
+<li><a href="#__autoload-obsol%C3%A8te"><code>__autoload()</code> obsolète</a></li>
+<li><a href="#spl_autoload_register"><code>spl_autoload_register()</code></a></li>
+<li><a href="#psr--php-standards-recommandations">PSR : PHP Standards Recommandations</a>
+<ul>
+<li><a href="#psr-4-et-organisation-des-namespaces">PSR-4 et organisation des namespaces</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#composer">Composer</a>
+<ul>
+<li><a href="#pr%C3%A9sentation-de-composer">Présentation de Composer</a></li>
+<li><a href="#installation-de-composer">Installation de Composer</a></li>
+<li><a href="#utiliser-composer-pour-lautoloading">Utiliser Composer pour l’autoloading</a></li>
+<li><a href="#gestion-des-d%C3%A9pendances">Gestion des dépendances</a></li>
+</ul>
+</li>
+<li><a href="#exemple-complet">Exemple complet</a>
+<ul>
+<li><a href="#fichier-composerjson">Fichier <code>composer.json</code></a></li>
+<li><a href="#fichier-srcmodelsuserphp">Fichier <code>src/Models/User.php</code></a></li>
+<li><a href="#fichier-srccontrollersusercontrollerphp">Fichier <code>src/Controllers/UserController.php</code></a></li>
+<li><a href="#fichier-indexphp-point-dentr%C3%A9e">Fichier <code>index.php</code> (point d’entrée)</a></li>
+</ul>
+</li>
+<li><a href="#pour-r%C3%A9sumer">Pour résumer</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="introduction-à-la-poo">Introduction à la POO</h2>
+<p>La Programmation Orientée Objet (POO) est un paradigme de programmation qui permet d’organiser le code autour d’entités nommées <em>objets</em>, plutôt qu’autour de fonctions ou de procédures. En PHP, la POO a été introduite dès PHP 4, mais c’est à partir de PHP 5 que le langage a réellement commencé à prendre en charge la POO de manière moderne et complète.</p>
+<p><strong>Avantages de la POO :</strong></p>
+<ul>
+<li>Favorise la réutilisation et la maintenance du code</li>
+<li>Structure le projet en classes et objets</li>
+<li>Permet la modularité et la clarté du code</li>
+<li>Donne la possibilité d’hériter des fonctionnalités déjà existantes</li>
+</ul>
+<hr>
+<h2 id="principes-fondamentaux-de-la-poo">Principes fondamentaux de la POO</h2>
+<h3 id="classes-et-objets">Classes et Objets</h3>
+<ul>
+<li><strong>Classe</strong> : c’est un plan ou un modèle qui définit les <strong>propriétés</strong> (variables) et les <strong>méthodes</strong> (fonctions) associées à un type particulier d’objet.</li>
+<li><strong>Objet</strong> : c’est une instance d’une classe, un exemplaire concret en mémoire.</li>
+</ul>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Voiture</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-variable">$marque</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-variable">$couleur</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">demarrer</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;La voiture démarre\n&quot;</span>;
+    }
+}
+
+<span class="hljs-comment">// Instanciation d’un objet</span>
+<span class="hljs-variable">$maVoiture</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Voiture</span>();
+<span class="hljs-variable">$maVoiture</span>-&gt;marque = <span class="hljs-string">&quot;Renault&quot;</span>;
+<span class="hljs-variable">$maVoiture</span>-&gt;couleur = <span class="hljs-string">&quot;Rouge&quot;</span>;
+<span class="hljs-variable">$maVoiture</span>-&gt;<span class="hljs-title function_ invoke__">demarrer</span>();
+</code></pre>
+<h3 id="propriétés-et-méthodes">Propriétés et Méthodes</h3>
+<ul>
+<li><strong>Propriétés</strong> : variables déclarées dans le corps d’une classe</li>
+<li><strong>Méthodes</strong> : fonctions déclarées dans le corps d’une classe</li>
+</ul>
+<p>Dans l’exemple ci-dessus, <code>$marque</code> et <code>$couleur</code> sont des propriétés, et <code>demarrer()</code> est une méthode.</p>
+<h3 id="visibilité--public-private-protected">Visibilité : public, private, protected</h3>
+<ul>
+<li><strong>public</strong> : accessible partout (à l’intérieur comme à l’extérieur de la classe)</li>
+<li><strong>private</strong> : accessible uniquement à l’intérieur de la classe elle-même</li>
+<li><strong>protected</strong> : accessible à l’intérieur de la classe et de ses classes dérivées (héritées)</li>
+</ul>
+<p><strong>Exemple :</strong></p>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Voiture</span>
+</span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$marque</span>;
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$couleur</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-variable">$modele</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"><span class="hljs-variable">$marque</span>, <span class="hljs-variable">$couleur</span>, <span class="hljs-variable">$modele</span></span>)
+    </span>{
+        <span class="hljs-variable language_">$this</span>-&gt;marque = <span class="hljs-variable">$marque</span>;
+        <span class="hljs-variable language_">$this</span>-&gt;couleur = <span class="hljs-variable">$couleur</span>;
+        <span class="hljs-variable language_">$this</span>-&gt;modele = <span class="hljs-variable">$modele</span>;
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debugMarque</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Marque : &quot;</span> . <span class="hljs-variable language_">$this</span>-&gt;marque . <span class="hljs-string">&quot;\n&quot;</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">afficherInfos</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-comment">// debugMarque() est private, on peut l’appeler depuis l’intérieur de la classe</span>
+        <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">debugMarque</span>();
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Couleur : &quot;</span> . <span class="hljs-variable language_">$this</span>-&gt;couleur . <span class="hljs-string">&quot;\n&quot;</span>;
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Modèle : &quot;</span> . <span class="hljs-variable language_">$this</span>-&gt;modele . <span class="hljs-string">&quot;\n&quot;</span>;
+    }
+}
+</code></pre>
+<h3 id="constructeurs-et-destructeurs">Constructeurs et Destructeurs</h3>
+<ul>
+<li><strong>Constructeur</strong> : une méthode spéciale appelée automatiquement lors de la création d’un objet (nommée <code>__construct()</code>)</li>
+<li><strong>Destructeur</strong> : une méthode spéciale appelée lorsque l’objet est détruit ou que le script s’achève (nommée <code>__destruct()</code>)</li>
+</ul>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Exemple</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;L’objet Exemple est créé.\n&quot;</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__destruct</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;L’objet Exemple est détruit.\n&quot;</span>;
+    }
+}
+
+<span class="hljs-variable">$ex</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Exemple</span>();
+<span class="hljs-comment">// À la fin du script ou quand $ex n’est plus référencé, __destruct() est appelé.</span>
+</code></pre>
+<h3 id="héritage">Héritage</h3>
+<p>L’héritage permet de créer une nouvelle classe (classe enfant) à partir d’une classe existante (classe parent). La classe enfant hérite des propriétés et méthodes de la classe parent et peut les surcharger ou en ajouter de nouvelles.</p>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vehicule</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-variable">$type</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"><span class="hljs-variable">$type</span></span>)
+    </span>{
+        <span class="hljs-variable language_">$this</span>-&gt;type = <span class="hljs-variable">$type</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">circuler</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Le véhicule circule.\n&quot;</span>;
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Moto</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Vehicule</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">faireUnWheeling</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;La moto fait un wheeling.\n&quot;</span>;
+    }
+}
+
+<span class="hljs-variable">$moto</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Moto</span>(<span class="hljs-string">&quot;2 roues&quot;</span>);
+<span class="hljs-variable">$moto</span>-&gt;<span class="hljs-title function_ invoke__">circuler</span>();
+<span class="hljs-variable">$moto</span>-&gt;<span class="hljs-title function_ invoke__">faireUnWheeling</span>();
+</code></pre>
+<h3 id="polymorphisme-interfaces-et-classes-abstraites">Polymorphisme, Interfaces et Classes abstraites</h3>
+<ul>
+<li><strong>Polymorphisme</strong> : un même nom de méthode peut se comporter différemment selon la classe qui l’implémente.</li>
+<li><strong>Classes abstraites</strong> : classes qui ne peuvent pas être instanciées directement et qui peuvent contenir des méthodes abstraites (non implémentées).</li>
+<li><strong>Interfaces</strong> : définissent un ensemble de méthodes <em>sans implémentation</em>, que les classes qui implémentent l’interface doivent définir.</li>
+</ul>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Affichable</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">afficher</span>(<span class="hljs-params"></span>)</span>;
+}
+
+<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span>
+</span>{
+    <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">crier</span>(<span class="hljs-params"></span>)</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">seDeplacer</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;L’animal se déplace.\n&quot;</span>;
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Chat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Affichable</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">crier</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Le chat miaule.\n&quot;</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">afficher</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Je suis un chat.\n&quot;</span>;
+    }
+}
+
+<span class="hljs-variable">$chat</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Chat</span>();
+<span class="hljs-variable">$chat</span>-&gt;<span class="hljs-title function_ invoke__">crier</span>();
+<span class="hljs-variable">$chat</span>-&gt;<span class="hljs-title function_ invoke__">seDeplacer</span>();
+<span class="hljs-variable">$chat</span>-&gt;<span class="hljs-title function_ invoke__">afficher</span>();
+</code></pre>
+<hr>
+<h2 id="autoload-en-php">Autoload en PHP</h2>
+<p>L’<strong>autoload</strong> permet de charger automatiquement les classes dont on a besoin sans avoir à faire manuellement des <code>require</code> ou <code>include</code> partout dans le code.</p>
+<h3 id="__autoload-obsolète"><code>__autoload()</code> obsolète</h3>
+<p>Historiquement, PHP offrait la fonction magique <code>__autoload()</code>. Depuis, cette approche est <strong>obsolète</strong> et a été remplacée par des mécanismes plus flexibles et plus robustes.</p>
+<h3 id="spl_autoload_register"><code>spl_autoload_register()</code></h3>
+<p>La fonction <code>spl_autoload_register()</code> permet d’enregistrer une ou plusieurs fonctions d’autochargement.</p>
+<p>Exemple basique :</p>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-title function_ invoke__">spl_autoload_register</span>(function (<span class="hljs-variable">$classe</span>) {
+    <span class="hljs-comment">// Supposons que les fichiers de classe sont stockés dans le dossier &quot;classes&quot;</span>
+    <span class="hljs-keyword">require_once</span> <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">&#x27;/classes/&#x27;</span> . <span class="hljs-variable">$classe</span> . <span class="hljs-string">&#x27;.php&#x27;</span>;
+});
+
+<span class="hljs-comment">// À partir d’ici, instancier une classe dans le dossier &quot;classes&quot; chargera</span>
+<span class="hljs-comment">// automatiquement son fichier correspondant</span>
+<span class="hljs-variable">$voiture</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Voiture</span>();
+<span class="hljs-variable">$voiture</span>-&gt;<span class="hljs-title function_ invoke__">demarrer</span>();
+</code></pre>
+<h3 id="psr--php-standards-recommandations">PSR : PHP Standards Recommandations</h3>
+<p>Les <a href="https://www.php-fig.org/psr/">PSR</a> sont un ensemble de recommandations  faisant office de &quot;standard&quot; sur la production de code.</p>
+<p>Chaque &quot;numéro&quot; de PSR correspond à une problématique : PSR4 concerne l'autoload des classes en fonction des namespaces.</p>
+<h4 id="psr-4-et-organisation-des-namespaces">PSR-4 et organisation des namespaces</h4>
+<p>Pour des projets plus importants, il est souvent recommandé de suivre la <strong>norme PSR-4</strong> pour organiser les classes dans des namespaces et un système de dossiers cohérents.</p>
+<p>Exemple d’arborescence (PSR-4) :</p>
+<pre><code>src/
+  Controllers/
+    UserController.php
+  Models/
+    User.php
+</code></pre>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// Fichier: src/Models/User.php</span>
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title class_">App</span>\<span class="hljs-title class_">Models</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>
+</span>{
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>Le namespace <code>App\Models</code> doit correspondre à l’emplacement du fichier (répertoire <code>src/Models</code>), conformément à PSR-4.</p>
+<hr>
+<h2 id="composer">Composer</h2>
+<h3 id="présentation-de-composer">Présentation de Composer</h3>
+<p><strong>Composer</strong> est un gestionnaire de dépendances pour PHP. Il permet :</p>
+<ul>
+<li>D’installer facilement des bibliothèques tierces (packages)</li>
+<li>De gérer automatiquement l’autoload de vos classes</li>
+<li>De mettre à jour les packages en quelques commandes</li>
+</ul>
+<h3 id="installation-de-composer">Installation de Composer</h3>
+<ul>
+<li><a href="https://getcomposer.org/download/">Télécharger Composer</a> et l’installer globalement ou localement
+<ul>
+<li>Sous Linux / macOS, on peut l’installer via la ligne de commande :<pre><code class="language-bash">curl -sS https://getcomposer.org/installer | php
+<span class="hljs-built_in">mv</span> composer.phar /usr/local/bin/composer
+</code></pre>
+</li>
+<li>Sous Windows, on exécute l’installateur téléchargeable sur le site de Composer.</li>
+</ul>
+</li>
+</ul>
+<h3 id="utiliser-composer-pour-lautoloading">Utiliser Composer pour l’autoloading</h3>
+<ol>
+<li>
+<p>Initialiser un projet Composer :</p>
+<pre><code class="language-bash">composer init
+</code></pre>
+<p>Cela va créer un fichier <code>composer.json</code>.</p>
+</li>
+<li>
+<p>Déclarer l’autoload dans <code>composer.json</code> (exemple PSR-4) :</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;autoload&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;psr-4&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;App\\&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;src/&quot;</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p>Générer l’autoload :</p>
+<pre><code class="language-bash">composer dump-autoload
+</code></pre>
+<p>Composer va créer un dossier <code>vendor</code> et des fichiers pour gérer l’autoload.</p>
+</li>
+<li>
+<p>Inclure l’autoload dans votre projet :</p>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require_once</span> <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">&#x27;/vendor/autoload.php&#x27;</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">User</span>;
+
+<span class="hljs-variable">$user</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>();
+</code></pre>
+</li>
+</ol>
+<h3 id="gestion-des-dépendances">Gestion des dépendances</h3>
+<p>Pour installer un package, on utilise simplement :</p>
+<pre><code class="language-bash">composer require vendor/nom-du-package
+</code></pre>
+<p>Par exemple :</p>
+<pre><code class="language-bash">composer require nesbot/carbon
+</code></pre>
+<p>Cela ajoute le package dans <code>composer.json</code> et télécharge les fichiers nécessaires dans <code>vendor/</code>.</p>
+<hr>
+<h2 id="exemple-complet">Exemple complet</h2>
+<p>Supposons que l’on crée un projet avec la structure suivante :</p>
+<pre><code>my_project/
+  src/
+    Models/
+      User.php
+    Controllers/
+      UserController.php
+  composer.json
+  index.php
+</code></pre>
+<h3 id="fichier-composerjson">Fichier <code>composer.json</code></h3>
+<pre><code class="language-jsonc"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mon-organisation/mon-projet&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;autoload&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;psr-4&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;App\\&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;src/&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;require&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="fichier-srcmodelsuserphp">Fichier <code>src/Models/User.php</code></h3>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title class_">App</span>\<span class="hljs-title class_">Models</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>
+</span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$name</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$email</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"><span class="hljs-variable">$name</span>, <span class="hljs-variable">$email</span></span>)
+    </span>{
+        <span class="hljs-variable language_">$this</span>-&gt;name = <span class="hljs-variable">$name</span>;
+        <span class="hljs-variable language_">$this</span>-&gt;email = <span class="hljs-variable">$email</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getName</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">$this</span>-&gt;name;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getEmail</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">$this</span>-&gt;email;
+    }
+}
+</code></pre>
+<h3 id="fichier-srccontrollersusercontrollerphp">Fichier <code>src/Controllers/UserController.php</code></h3>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title class_">App</span>\<span class="hljs-title class_">Controllers</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>\<span class="hljs-title">User</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createUser</span>(<span class="hljs-params"><span class="hljs-variable">$name</span>, <span class="hljs-variable">$email</span></span>)
+    </span>{
+        <span class="hljs-comment">// Ici, on utilise la classe User</span>
+        <span class="hljs-variable">$user</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>(<span class="hljs-variable">$name</span>, <span class="hljs-variable">$email</span>);
+        <span class="hljs-comment">// Traitement éventuel...</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-variable">$user</span>;
+    }
+}
+</code></pre>
+<h3 id="fichier-indexphp-point-dentrée">Fichier <code>index.php</code> (point d’entrée)</h3>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require_once</span> <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">&#x27;/vendor/autoload.php&#x27;</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">UserController</span>;
+
+<span class="hljs-variable">$userController</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserController</span>();
+<span class="hljs-variable">$newUser</span> = <span class="hljs-variable">$userController</span>-&gt;<span class="hljs-title function_ invoke__">createUser</span>(<span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;alice@example.com&#x27;</span>);
+
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Utilisateur créé : &quot;</span> . <span class="hljs-variable">$newUser</span>-&gt;<span class="hljs-title function_ invoke__">getName</span>() . <span class="hljs-string">&quot; (&quot;</span> . <span class="hljs-variable">$newUser</span>-&gt;<span class="hljs-title function_ invoke__">getEmail</span>() . <span class="hljs-string">&quot;)&quot;</span>;
+</code></pre>
+<p>Après avoir exécuté :</p>
+<pre><code class="language-bash">composer dump-autoload
+</code></pre>
+<p>Le projet est opérationnel. Lorsque vous appelez l’URL associée à <code>index.php</code>, toutes les classes se chargeront automatiquement via l’autoload généré par Composer.</p>
+<hr>
+<h2 id="pour-résumer">Pour résumer</h2>
+<ul>
+<li>La <strong>Programmation Orientée Objet</strong> rend le code plus structuré et maintenable.</li>
+<li>L’<strong>autoload</strong> facilite le chargement des classes sans multiplier les <code>require</code> ou <code>include</code>.</li>
+<li><strong>Composer</strong> est l’outil standard pour gérer les dépendances en PHP et inclut un système d’autoload fiable.</li>
+</ul>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

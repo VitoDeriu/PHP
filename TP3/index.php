@@ -13,5 +13,8 @@
      <?php echo ("<h1> Bonjour ! $username </h1>") ?>    
     <a href="login.php">Se Connecter</a>
     <a href="signup.php">S'inscrire</a>
+    <pre>
+        Bonjour Nath !
+    </pre>
 </body>
 </html>
