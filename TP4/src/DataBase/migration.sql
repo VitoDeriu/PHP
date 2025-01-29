@@ -1,16 +1,15 @@
-DROP DATABASE users; 
+DROP DATABASE IF EXISTS b2_php_tp4; 
 
-CREATE DATABASE IF NOT EXISTS users; 
+CREATE DATABASE IF NOT EXISTS b2_php_tp4; 
 
-USE DATABASE users;
+USE b2_php_tp4;
 
-CREATE TABLE IF NOT EXISTS user(
+CREATE TABLE IF NOT EXISTS users (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(255) UNIQUE NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(200) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL
 );
 
-INSERT INTO user(username, email, password)
-VALUES("Kantin", "kantin@kantin.com", "kakantin");
-
+INSERT INTO users(username, email, password)
+VALUE ("Kantin", "kantin@kantin.cum", "password");
